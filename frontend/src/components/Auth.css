@@ -1,0 +1,85 @@
+/* Auth.css */
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('../assets/th.jpeg') no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+}
+
+.auth-form {
+  background: white;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+.auth-form a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+.auth-form .forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-form .forgot-password label {
+  display: flex;
+  align-items: center;
+}
+
+.auth-form .forgot-password label input {
+  accent-color: #007bff;
+  margin-right: 5px;
+}
+
+.auth-form .forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+}

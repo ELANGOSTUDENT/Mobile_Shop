@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  margin: 50px 0;
+}
+main {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#features ul {
+  list-style: none;
+  padding: 0;
+}
+
+#features li {
+  margin: 10px 0;
+}
+
+
+ 
