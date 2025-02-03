@@ -1,0 +1,74 @@
+/* Welcome Section Styles */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-image {
+    max-width: 60%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Product Section Styles */
+  .product-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .product-card {
+    display: inline-block;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+  .faq-section {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+  
+  .faq-item {
+    margin-bottom: 1rem;
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .faq-question h3 {
+    margin: 0;
+  }
+  
+  .faq-answer {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: #fff;
+    border-left: 4px solid #007BFF;
+    border-radius: 4px;
+  }

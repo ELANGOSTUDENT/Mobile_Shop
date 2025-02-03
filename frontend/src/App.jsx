@@ -1,6 +1,7 @@
 //import React from 'react';
 import Header from './components/Header';
-import HomePage from './components/HomePage';
+import HomePage from './Pages/HomePage';
+import Dash from './Pages/Dashboard';
 
 //import Footer from './components/Footer';
 
@@ -9,6 +10,7 @@ const App = () => {
     <div>
       <Header />
       <HomePage />
+      <Dash/>
       
     </div>
   );
