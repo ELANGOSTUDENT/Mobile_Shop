@@ -1,8 +1,9 @@
-
 import { useState, useEffect } from "react";
-import AddService from "./Addservice";
+import AdminSidebar from "./AdminSidebar";
+import AdminDetails from "./Request";
 
 const AdminDashboard = () => {
+  const [view, setView] = useState("addService"); // Default view
   const [services, setServices] = useState([]);
   const [repairRequests, setRepairRequests] = useState([]);
 
@@ -20,6 +21,7 @@ const AdminDashboard = () => {
       .then((data) => setRepairRequests(data));
   }, []);
 
+  // Add a new service
   const handleAddService = (service) => {
     fetch("/api/services", {
       method: "POST",
@@ -30,11 +32,13 @@ const AdminDashboard = () => {
       .then((newService) => setServices([...services, newService]));
   };
 
+  // Delete a service
   const handleDeleteService = (id) => {
     fetch(`/api/services/${id}`, { method: "DELETE" })
       .then(() => setServices(services.filter((service) => service.id !== id)));
   };
 
+  // Update repair request status
   const handleStatusChange = (id, newStatus) => {
     fetch(`/api/repairs/${id}`, {
       method: "PUT",
@@ -50,54 +54,19 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      
-      {/* Add Service Form */}
-      <AddService onAdd={handleAddService} />
+    <div className="admin-container">
+      {/* Sidebar Navigation */}
+      <AdminSidebar onSelect={setView} />
 
-      {/* Service List */}
-      <h2>Available Services</h2>
-      <ul>
-        {services.map((service) => (
-          <li key={service.id}>
-            {service.name} - ${service.price} 
-            <button onClick={() => handleDeleteService(service.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-
-      {/* Repair Requests Table */}
-      <h2>Repair Requests</h2>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Customer</th>
-            <th>Issue</th>
-            <th>Status</th>
-            <th>Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          {repairRequests.map((req) => (
-            <tr key={req.id}>
-              <td>{req.id}</td>
-              <td>{req.customer}</td>
-              <td>{req.issue}</td>
-              <td>{req.status}</td>
-              <td>
-                <select value={req.status} onChange={(e) => handleStatusChange(req.id, e.target.value)}>
-                  <option value="Pending">Pending</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Completed">Completed</option>
-                </select>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+      {/* Main Content */}
+      <AdminDetails
+        view={view}
+        services={services}
+        repairRequests={repairRequests}
+        onAddService={handleAddService}
+        onDeleteService={handleDeleteService}
+        onStatusChange={handleStatusChange}
+      />
     </div>
   );
 };

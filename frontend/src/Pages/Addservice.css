@@ -36,7 +36,7 @@
 .add-service-input:focus,
 .add-service-textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #cc00ff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .add-service-button:hover {
-  background: #0056b3;
+  background: #7a00b3;
 }
 body {
   font-family: Arial, sans-serif;
@@ -118,7 +118,7 @@ th, td {
 }
 
 th {
-  background: #007bff;
+  background: #aa00ff;
   color: white;
 }
 

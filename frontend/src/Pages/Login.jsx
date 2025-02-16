@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
 import './Auth.css';
 import { FaUser, FaLock } from "react-icons/fa";
-//import back from "../assets/th.jpeg"
-
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); // ✅ Initialize navigation
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,14 +14,33 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login Data:', formData);
+
+    fetch("http://localhost:5000/api/auth/login", { // ✅ Ensure this is your backend login API
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Login successful!");
+          navigate('/dashboard'); // ✅ Redirect to dashboard after login
+
+        } else {
+          setError(data.message || "Invalid credentials");
+        }
+      })
+      .catch((err) => {
+        console.error("Login failed:", err);
+        setError("Something went wrong!");
+      });
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>SIGN IN</h2>
-        <FaUser className ="icon"/>
+        <FaUser className="icon" />
         <input
           type="email"
           name="email"
@@ -28,7 +48,7 @@ const Login = () => {
           onChange={handleChange}
           required
         />
-        <FaLock className ="icon"/>
+        <FaLock className="icon" />
         <input
           type="password"
           name="password"
@@ -36,21 +56,12 @@ const Login = () => {
           onChange={handleChange}
           required
         />
-        
-  
-        <div className ="forgot-password">
-          <label>Remember me<input 
-          type="checkbox"/>
-        </label>
-        <a href ="#" className="forgot-password">Forgot password</a>
-        </div>
-        
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <button type="submit">Login</button>
-        <p>Dont have an account?</p><a href="/register"> Register</a>
+        <p>Dont have an account? <a href="/register">Register</a></p>
       </form>
     </div>
   );
 };
 
 export default Login;
-

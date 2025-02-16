@@ -1,17 +1,26 @@
-//import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './Pages/HomePage';
 import Dash from './Pages/Dashboard';
-
-//import Footer from './components/Footer';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Admin from './Pages/Admin';
+import ProductDetails from './Pages/ProductDetails';
+import AddProduct from './Pages/AddProduct';
 
 const App = () => {
   return (
     <div>
       <Header />
-      <HomePage />
-      <Dash/>
-      
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dash />} /> {/* ✅ Navigate here after login */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/add-product" element={<AddProduct />} />
+      </Routes>
     </div>
   );
 };
