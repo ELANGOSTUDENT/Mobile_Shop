@@ -8,7 +8,7 @@ const getCustomers = async (req, res) => {
 
     console.log("Query result:", result.rows); // Check database response
     res.json(result.rows);
-  } catch (err) {
+  } catch (err){
     console.error("Database error:", err);
     res.status(500).json({ error: "Database error", details: err.message });
   }

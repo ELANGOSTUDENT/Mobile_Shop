@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import AdminAddService from "./Adminaddservice";
 import CustomerList from "./CustomerList";
 
-const AdminDetails = ({ view, services, repairRequests, customers, onAddService, onDeleteService, onStatusChange }) => {
+const AdminDetails = ({ view,  repairRequests, customers, onAddService,  onStatusChange }) => {
   return (
     <div className="content">
       {view === "addService" && (
@@ -56,9 +56,9 @@ AdminDetails.propTypes = {
   view: PropTypes.string.isRequired,
   services: PropTypes.array.isRequired,
   repairRequests: PropTypes.array.isRequired,
-  customers: PropTypes.array.isRequired,
+  customers: PropTypes.array.isRequired, // Accept customers
   onAddService: PropTypes.func.isRequired,
-  onDeleteService: PropTypes.func.isRequired,
+  
   onStatusChange: PropTypes.func.isRequired,
 };
 

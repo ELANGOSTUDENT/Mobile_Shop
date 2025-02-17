@@ -1,30 +1,22 @@
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const CustomerList = () => {
-  const [users, setUsers] = useState([]);
-
-  // Fetch users from backend
-  useEffect(() => {
-    fetch("/api/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error("Error fetching users:", err));
-  }, []);
-
+const CustomerList = ({ customers }) => {
   return (
     <div>
       <h2>All Customers</h2>
       <table border="1">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone Number</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {customers.map((user) => (
             <tr key={user.id}>
+              <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
@@ -34,6 +26,10 @@ const CustomerList = () => {
       </table>
     </div>
   );
+};
+
+CustomerList.propTypes = {
+  customers: PropTypes.array.isRequired,
 };
 
 export default CustomerList;

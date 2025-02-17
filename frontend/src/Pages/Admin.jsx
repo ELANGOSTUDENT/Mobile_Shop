@@ -6,6 +6,16 @@ const AdminDashboard = () => {
   const [view, setView] = useState("addService"); // Default view
   const [services, setServices] = useState([]);
   const [repairRequests, setRepairRequests] = useState([]);
+  const [customers, setCustomers] = useState([]); // Add this line
+
+// Fetch customers from backend
+useEffect(() => {
+  fetch("/api/users") // Update API route if needed
+    .then((res) => res.json())
+    .then((data) => setCustomers(data))
+    .catch((err) => console.error("Error fetching customers:", err));
+}, []);
+
 
   // Fetch services from backend
   useEffect(() => {
@@ -63,6 +73,7 @@ const AdminDashboard = () => {
         view={view}
         services={services}
         repairRequests={repairRequests}
+        customers={customers}
         onAddService={handleAddService}
         onDeleteService={handleDeleteService}
         onStatusChange={handleStatusChange}

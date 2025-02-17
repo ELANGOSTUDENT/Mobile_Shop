@@ -145,8 +145,12 @@ main {
 }
 
 /* Welcome Section */
+
 .welcome-section {
-  padding: 30px;
+  background-color: #12a793; /* Ink Blue */
+  color: white; /* Ensure text is readable */
+  padding: 50px 20px;
+  text-align: center;
 }
 
 .hero-image {

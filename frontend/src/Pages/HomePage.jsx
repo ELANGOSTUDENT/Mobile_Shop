@@ -47,6 +47,11 @@ import exchange from '../assets/exchange.jpeg';
 import sell from '../assets/sell.jpeg';
 import buy from '../assets/buy.jpeg';
 import recycle from '../assets/recycle.jpeg';
+import proximity from '../assets/proximity.jpg';
+import mic from '../assets/mic.jpeg';
+import battery from '../assets/battery.jpeg';
+import backpanel from '../assets/backpanel.jpeg';
+import brand from '../assets/brand.jpg';
 import BookService from './Addservice';
 import TrackService from './TrackingService';
 import { useState ,useEffect} from 'react';
@@ -80,7 +85,7 @@ const HomePage = () => {
         <img src={mobile} alt="Hero" className="hero-image" />
       </section> */}
       <section id="welcome" className="welcome-section">
-        <h1>Welcome to My Mobile Shop</h1>
+        <p>Welcome to My Mobile Shop</p>
         <p>Discover amazing features and services.</p>
         <div className="slideshow-container">
           <img
@@ -97,16 +102,13 @@ const HomePage = () => {
         <div className="services-container">
           <div className="service-card">
             <img src={sell} alt="Sell Phone" />
-            <p>Sell Phone</p>
+            <p>Sell </p>
           </div>
           <div className="service-card">
             <img src={buy} alt="Buy Phone" />
-            <p>Buy Phone</p>
+            <p>Buy </p>
           </div>
-          <div className="service-card">
-            <img src={repair} alt="Repair Phone" />
-            <p>Repair Phone</p>
-          </div>
+          
           <div className="service-card">
             <img src={accessories} alt="Accessories" />
             <p>Buy Accessories</p>
@@ -120,6 +122,22 @@ const HomePage = () => {
             <img src={recycle} alt="Recycle" />
             <p>Recycle</p>
           </div>
+          <div className="service-card">
+            <img src={proximity} alt="proximity" />
+            <p>Proximity</p>
+          </div>
+          <div className="service-card">
+            <img src={mic} alt="Mic" />
+            <p>Mic</p>
+          </div>
+          <div className="service-card">
+            <img src={battery} alt="battery" />
+            <p>Battery</p>
+          </div>
+          <div className="service-card">
+            <img src={backpanel} alt="backpanel" />
+            <p>Backpanel</p>
+          </div>
         </div>
       </section>
       <section className="service-actions-section">
@@ -131,6 +149,9 @@ const HomePage = () => {
         </button>
         {showBookService && <BookService />}
         {showTrackService && <TrackService />}
+      </section>
+      <section id="servise" className="welcome-section">
+        <img src ={brand} alt =""/>
       </section>
       
     </main>
