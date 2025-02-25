@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AdminSidebar from "./AdminSidebar";
-import AdminDetails from "./Request";
+ import AdminDetails from "./Request";
 
 const AdminDashboard = () => {
   const [view, setView] = useState("addService"); // Default view
@@ -10,7 +10,7 @@ const AdminDashboard = () => {
 
 // Fetch customers from backend
 useEffect(() => {
-  fetch("/api/users") // Update API route if needed
+  fetch("/api/customers") // Update API route if needed
     .then((res) => res.json())
     .then((data) => setCustomers(data))
     .catch((err) => console.error("Error fetching customers:", err));

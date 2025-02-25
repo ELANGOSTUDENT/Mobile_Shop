@@ -41,7 +41,7 @@ import './Homepage.css';
 import image1 from '../assets/mobile.jpg';
 import image2 from '../assets/image1.jpg';
 import image3 from '../assets/image2.jpg';
-import repair from '../assets/repair.jpeg';
+
 import accessories from '../assets/accessories.jpeg';
 import exchange from '../assets/exchange.jpeg';
 import sell from '../assets/sell.jpeg';
@@ -65,7 +65,7 @@ const HomePage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 5 seconds
+    }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [images.length]);

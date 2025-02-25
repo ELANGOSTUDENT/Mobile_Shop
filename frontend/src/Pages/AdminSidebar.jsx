@@ -1,5 +1,5 @@
-import { FiGrid, FiTool, FiUsers, FiLogOut } from "react-icons/fi";
-import './Admin.css';
+import { FiGrid,  FiLogOut } from "react-icons/fi";
+import './AdminSidebar.css';
 import PropTypes from "prop-types";
 
 const AdminSidebar = ({ onSelect }) => {
@@ -11,10 +11,13 @@ const AdminSidebar = ({ onSelect }) => {
         <FiGrid /> Dashboard
       </li>
       <li onClick={() => onSelect("addService")}>
-        <FiTool /> Add New Service
+         Add New Service
       </li>
       <li onClick={() => onSelect("customers")}>
-        <FiUsers /> Customers
+        Customers
+      </li>
+      <li onClick={() => onSelect("customers")}>
+         Service Request
       </li>
     </ul>
       <button className="logout-button">

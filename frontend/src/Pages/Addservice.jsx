@@ -21,14 +21,36 @@ const AddService = ({ onAdd }) => {
     setEstimatedCost(issueCostMapping[selectedIssue] || 0);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Create the service object
     const service = { deviceType, issue, estimatedCost, appointmentDate };
-    onAdd(service);
-    setDeviceType("");
-    setIssue("");
-    setEstimatedCost(0);
-    setAppointmentDate("");
+
+    // Send the service data to the backend
+    try {
+      const response = await fetch("http://localhost:5000/api/services", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(service),
+      });
+
+      if (response.ok) {
+        console.log("Service booked successfully!");
+        onAdd(service); // Optionally handle successful booking on frontend
+        // Reset form after successful submission
+        setDeviceType("");
+        setIssue("");
+        setEstimatedCost(0);
+        setAppointmentDate("");
+      } else {
+        console.error("Error booking service:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
   };
 
   return (

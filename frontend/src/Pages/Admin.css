@@ -7,21 +7,18 @@ body {
   }
   
   /* Admin Page Layout */
-  .admin-container {
-    display: flex;
-    height: 100vh;
-  }
+  
   
   
 
 
   
   /* Content */
-  .content {
+   .content {
     flex: 1;
     order: 0; /* Moves content to the left */
     padding: 30px;
-  }
+  } 
   
   /* Upload Section */
   .upload-container {

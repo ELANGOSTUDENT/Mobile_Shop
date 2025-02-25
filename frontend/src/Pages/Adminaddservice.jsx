@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Adminaddservice.css";
+import "./Admin.css";
 
 const AdminAddService = ({ onAdd }) => {
     const [serviceName, setServiceName] = useState("");
@@ -28,7 +29,7 @@ const AdminAddService = ({ onAdd }) => {
   
     return (
       <form className="admin-add-service-form" onSubmit={handleSubmit}>
-        <h2 className="admin-add-service-title">Add New Service</h2>
+        
   
         <input
           className="admin-add-service-input"
@@ -41,7 +42,7 @@ const AdminAddService = ({ onAdd }) => {
   
         <textarea
           className="admin-add-service-input"
-          placeholder="Service Description (Optional)"
+          placeholder="Service Description "
           value={serviceDescription}
           onChange={(e) => setServiceDescription(e.target.value)}
         />
