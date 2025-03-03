@@ -11,7 +11,7 @@ const AdminAddService = ({ onAdd }) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       if (!serviceName || !serviceCost) {
-        alert("Please enter service name and cost.");
+        alert("Please enter service name.");
         return;
       }
   
