@@ -6,7 +6,8 @@ const Register = () => {
     name: '',  // ✅ Use 'name' instead of 'username'
     email: '', 
     phone: '',  
-    password: '' 
+    password: '',
+    gender: ''
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -35,21 +36,25 @@ const Register = () => {
       setError("Password must have 8+ characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character.");
       return;
     }
+    if (!formData.gender) {
+      setError("Please select a gender.");
+      return;
+    }
 
     setError(""); 
-    setSuccess(""); // Clear old messages
+    setSuccess("");
 
     console.log('Register Data:', formData);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {  // ✅ Fixed API URL
+      const response = await fetch("http://localhost:5000/api/auth/register", {  
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      console.log("Response from server:", data); // ✅ Debugging
+      console.log("Response from server:", data); 
 
       if (response.ok) {
         setSuccess("Registration successful! Please login.");
@@ -97,6 +102,19 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+        <select
+          name="gender"
+          className="auth-select"
+          id="gender"
+          onChange={handleChange}
+    
+          required
+        >
+          {/* <option value="">Select Gender</option> */}
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
         <button type="submit">Register</button>

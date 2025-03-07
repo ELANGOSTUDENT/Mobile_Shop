@@ -10,6 +10,9 @@ const AdminSidebar = ({ onSelect }) => {
       <li onClick={() => onSelect("dashboard")}>
         <FiGrid /> Dashboard
       </li>
+      <li onClick={() => onSelect ("product")}>
+        Add product
+      </li>
       <li onClick={() => onSelect("addService")}>
          Add New Service
       </li>

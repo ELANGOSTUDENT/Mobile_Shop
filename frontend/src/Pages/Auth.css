@@ -88,3 +88,31 @@
   color: #333;
   margin-bottom: 20px;
 }
+.auth-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Style the dropdown arrow */
+.auth-form select::-ms-expand {
+  display: none;
+}
+
+.auth-form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Optional: Style the dropdown options */
+.auth-form select option {
+  background: white;
+  color: #333;
+}
